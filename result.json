@@ -1,0 +1,14 @@
+{
+    "search_query": [
+        "LangGraph 是什么 2025 最新 官方文档 功能介绍"
+    ],
+    "web_search_result": [
+        "**安装依赖**： **初始化项目**：   `from langgraph.graph import StateGraph, START, END messages: Annotated[list, add_messages] # 消息列表自动追加 def chatbot_node(state: ChatState): response = llm.invoke(state[\"messages\"]) return {\"messages\": [response]} graph_builder = StateGraph(ChatState) graph_builder.add_node(\"chatbot\", chatbot_node) graph_builder.add_edge(START, \"chatbot\") # 从入口节点开始 graph_builder.add_edge(\"chatbot\", END) # 执行后结束 result = graph.invoke({\"messages\": [(\"user\", \"你好！\")]}) **定义工具与状态**： `from langchain_core.tools import tool @tool messages: Annotated[list, add_messages] tools = [get_weather] tool_node = ToolNode(tools)` **定义条件分支与循环**： `def should_continue(state: AgentState): return \"continue\" if last_msg.tool_calls else \"end\" workflow = StateGraph(AgentState) workflow.add_node(\"llm\", llm_node) # 大模型推理节点 workflow.add_node(\"tools\", tool_node) # 工具调用节点 workflow.add_conditional_edges( {\"continue\": \"tools\", \"end\": END} workflow.add_edge(\"tools\", \"llm\") # 工具调用后返回LLM` @tool messages: Annotated[list, add_messages] llm = ChatOpenAI().bind_tools([compute_savings]) def tool_node_with_fallback(state): return ToolNode([compute_savings]).invoke(state) return {\"messages\": [f\"工具调用失败：{str(e)}\"]} workflow = StateGraph(SolarState) workflow.add_node(\"assistant\", llm_node) workflow.add_node(\"tools\", tool_node_with_fallback) workflow.add_conditional_edges(\"assistant\", tools_condition) # 根据LLM输出选择分支 workflow.add_edge(\"tools\", \"assistant\")` `from langgraph.checkpoint.memory import MemorySaver graph = workflow.compile(checkpointer=memory)` **相关资源**：",
+        "超越LangChain！LangGraph快速入门与智能体开发实战！工业级智能体开发、部署、运维、前端对话全流程实践，NL2SQL、Python代码解释器开发！\n九天Hector\n354 subscribers\n15 likes\n619 views\n16 Jul 2025\n4小时LangGraph快速入门与智能体开发实战公开课来啦！从零详解LangGraph各项核心功能，深度实践智能体开发、部署、运维、前端对话全流程，手动实现NL2SQL、Python代码解释器功能开发，搭建企业级AI数据分析智能体Data Agent！\n\n",
+        "在大模型领域，LangChain和LangGraph是两个备受关注的框架，它们都旨在帮助开发者利用大型语言模型（LLM）构建应用程序，但二者在设计理念、架构、功能和",
+        "3. LangChain 和LangGraph 的区别 · 结构：. LangChain：基于链式结构，适合线性任务流程。 LangGraph：基于图结构，支持非线性、多路径的控制流。 · 任务复杂度：."
+    ],
+    "search_query_count": 1,
+    "max_research_loops": 2,
+    "research_loop_count": 2
+}

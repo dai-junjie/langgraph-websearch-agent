@@ -1,0 +1,6 @@
+langchain
+langgraph
+langchain-openai
+langchain-tavily
+pydantic
+ipython
